@@ -44,6 +44,11 @@ require_once get_template_directory() . '/core/classes/class-thumbnail-resizer.p
  */
 require_once get_template_directory() . '/core/classes/widgets/class-widget-like-box.php';
 
+/**
+ * Customizer
+ */
+require_once get_template_directory() . '/inc/customizer.php';
+
 if ( ! function_exists( 'odin_setup_features' ) ) {
 
 	/**
@@ -213,6 +218,10 @@ function odin_enqueue_scripts() {
 
 	// jQuery.
 	wp_enqueue_script( 'jquery' );
+
+	// Google Maps
+	wp_enqueue_script( 'google-maps-v3', '//maps.googleapis.com/maps/api/js?key=AIzaSyAa3zYip1cZkKdrUuCGYjqh42Nbrr0ICMQ', array(), null, true );
+
 
 	// General scripts.
 	if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {

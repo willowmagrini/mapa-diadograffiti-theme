@@ -31,35 +31,18 @@
 	</a>
 
 	<header id="header" role="banner">
-		<div class="container">
-			<div class="page-header hidden-xs">
-				<?php if ( is_home() ) : ?>
-					<h1 class="site-title">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-							<?php bloginfo( 'name' ); ?>
-						</a>
-					</h1>
-					<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-				<?php else : ?>
-					<div class="site-title h1">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-							<?php bloginfo( 'name' ); ?>
-						</a>
-					</div>
-					<div class="site-description h2">
-						<?php bloginfo( 'description' ); ?>
-					</div>
-				<?php endif ?>
-
-				<?php
-					$header_image = get_header_image();
-					if ( ! empty( $header_image ) ) :
-				?>
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-						<img src="<?php echo esc_url( $header_image ); ?>" height="<?php esc_attr_e( $header_image->height ); ?>" width="<?php esc_attr_e( $header_image->width ); ?>" alt="" />
-					</a>
-				<?php endif; ?>
-			</div><!-- .site-header-->
+		<div class="header-image">
+			<?php
+			$header_image = get_header_image();
+			if ( ! empty( $header_image ) ) :
+			?>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+					<img src="<?php echo esc_url( $header_image ); ?>" height="<?php esc_attr_e( $header_image->height ); ?>" width="<?php esc_attr_e( $header_image->width ); ?>" alt="" />
+				</a>
+			<?php endif; ?>
+		</div><!-- .header-image -->
+		<div class="container-menu" id="header-size">
+			<div class="container">
 
 			<div id="main-navigation" class="navbar navbar-default">
 				<div class="navbar-header">
@@ -86,20 +69,13 @@
 							)
 						);
 					?>
-					<form method="get" class="navbar-form navbar-right" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
-						<label for="navbar-search" class="sr-only">
-							<?php _e( 'Search:', 'odin' ); ?>
-						</label>
-						<div class="form-group">
-							<input type="search" value="<?php echo get_search_query(); ?>" class="form-control" name="s" id="navbar-search" />
-						</div>
-						<button type="submit" class="btn btn-default"><?php _e( 'Search', 'odin' ); ?></button>
-					</form>
 				</nav><!-- .navbar-collapse -->
 			</div><!-- #main-navigation-->
-
+			<?php if ( $value = get_theme_mod( 'featured_btn_link', false ) ) : ?>
+				<a href="<?php echo $value;?>" class="featured-btn">
+					<?php echo get_theme_mod( 'featured_btn_txt', '' );?>
+				</a>
+			<?php endif;?>
 		</div><!-- .container-->
+	</div><!-- .container-menu -->
 	</header><!-- #header -->
-
-	<div id="wrapper" class="container">
-		<div class="row">
