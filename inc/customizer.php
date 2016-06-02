@@ -54,6 +54,76 @@ function mapa_graffiti_kirki_fields( $fields ) {
 		'priority' => 1,
 	);
 
+	$fields[] = array(
+		'type'     => 'text',
+		'setting'  => 'apoiador_link_1',
+		'label'    => __( 'Link para o site do apoiador 1', 'odin' ),
+		'section'  => 'footer',
+		'default'  => '',
+		'priority' => 1,
+	);
+	$fields[] = array(
+		'type'     => 'image',
+		'setting'  => 'apoiador_img_1',
+		'label'    => __( 'Imagem do apoiador 1', 'odin' ),
+		'section'  => 'footer',
+		'default'  => '',
+		'priority' => 1,
+	);
+
+	$fields[] = array(
+		'type'     => 'text',
+		'setting'  => 'apoiador_link_2',
+		'label'    => __( 'Link para o site do apoiador 2', 'odin' ),
+		'section'  => 'footer',
+		'default'  => '',
+		'priority' => 1,
+	);
+	$fields[] = array(
+		'type'     => 'image',
+		'setting'  => 'apoiador_img_2',
+		'label'    => __( 'Imagem do apoiador 2', 'odin' ),
+		'section'  => 'footer',
+		'default'  => '',
+		'priority' => 1,
+	);
+
+	$fields[] = array(
+		'type'     => 'text',
+		'setting'  => 'apoiador_link_3',
+		'label'    => __( 'Link para o site do apoiador 3', 'odin' ),
+		'section'  => 'footer',
+		'default'  => '',
+		'priority' => 1,
+	);
+	$fields[] = array(
+		'type'     => 'image',
+		'setting'  => 'apoiador_img_3',
+		'label'    => __( 'Imagem do apoiador 3', 'odin' ),
+		'section'  => 'footer',
+		'default'  => '',
+		'priority' => 1,
+	);
+
+	$fields[] = array(
+		'type'     => 'text',
+		'setting'  => 'apoiador_link_4',
+		'label'    => __( 'Link para o site do apoiador 4', 'odin' ),
+		'section'  => 'footer',
+		'default'  => '',
+		'priority' => 1,
+	);
+	$fields[] = array(
+		'type'     => 'image',
+		'setting'  => 'apoiador_img_4',
+		'label'    => __( 'Imagem do apoiador 4', 'odin' ),
+		'section'  => 'footer',
+		'default'  => '',
+		'priority' => 1,
+	);
+
+
+
 	return $fields;
 }
 add_filter( 'kirki/fields', 'mapa_graffiti_kirki_fields' );

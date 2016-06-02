@@ -9,11 +9,27 @@
  * @since 2.2.0
  */
 ?>
-	<footer id="footer" role="contentinfo">
-		<div class="container">
-			<p>&copy; <?php echo date( 'Y' ); ?> <a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a> - <?php _e( 'All rights reserved', 'odin' ); ?> | <?php echo sprintf( __( 'Powered by the <a href="%s" rel="nofollow" target="_blank">Odin</a> forces and <a href="%s" rel="nofollow" target="_blank">WordPress</a>.', 'odin' ), 'http://wpod.in/', 'http://wordpress.org/' ); ?></p>
-		</div><!-- .container -->
-	</footer><!-- #footer -->
+	<footer id="footer-container" class="col-md-12">
+		<span class="icon"></span>
+		<div class="col-md-12 footer-open text-center" data-open="false">
+			<h3><?php _e( 'Clique e veja quem apoia esse projeto', 'odin');?></h3>
+		</div><!-- .col-md-12 footer-open -->
+		<div class="footer-toggle col-md-12">
+			<div class="container">
+				<div class="row">
+					<?php for ( $i = 1; $i < 5; $i++ ) : ?>
+						<?php $option_img = sprintf( 'apoiador_img_%s', $i );?>
+						<?php $option_link = sprintf( 'apoiador_link_%s', $i );?>
+						<?php if ( $value = get_theme_mod( $option_img, false ) ) : ?>
+							<a href="<?php echo get_theme_mod( $option_link, '#' );?>">
+								<img src="<?php echo $value;?>"/>
+							</a>
+						<?php endif;?>
+					<?php endfor;?>
+				</div><!-- .row -->
+			</div><!-- .container -->
+		</div><!-- .footer-toggle -->
+	</footer><!-- #footer-container -->
 <?php wp_footer(); ?>
 </body>
 </html>

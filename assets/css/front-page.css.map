@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA,IAAK,CACJ,KAAK,CAAC,IAAI,CACV,KAAK,CAAE,IAAI,CACX,MAAM,CAAC,IAAI",
+"mappings": "AAAA,IAAK,CACJ,KAAK,CAAC,IAAI,CACV,KAAK,CAAE,IAAI,CACX,MAAM,CAAC,IAAI,CAEZ,IAAK,CACJ,QAAQ,CAAE,iBAAiB",
 "sources": ["../sass/front-page.scss"],
 "names": [],
 "file": "front-page.css"
