@@ -6,3 +6,71 @@
 html {
 	overflow: hidden !important;
 }
+.clear {
+	height:10px;
+	clear: both;
+}
+#filters {
+    margin-top: 84px;
+    position: fixed;
+    right: 0;
+    z-index: 122;
+    background: url( '../images/bg-filters.png' ) center no-repeat;
+    background-size: cover;
+    padding-bottom: 20px;
+    box-shadow: 3px 8px 4px 0px rgba(0, 0, 0, 0.53);
+
+    h3 {
+    	color:#FFF;
+    	padding-bottom: 20px;
+    }
+    .text {
+    	margin-bottom:10px;
+    	background:#7c7c7c;
+    	color:#FFF;
+    	width:100%;
+    	padding-right:10px;
+    	padding-left: 10px;
+    	padding-top:10px;
+    	padding-bottom: 10px;
+    	border: none;
+    	font-size: 1.2em;
+    }
+    .text:last-child {
+    	margin-bottom: 20px;
+    }
+    input[type="radio"] {
+    	float: left;
+    }
+    label {
+    	color:#FFF;
+    	padding-left:10px;
+    	font-weight: 300;
+    }
+    button {
+    	background: #ea7a06;
+    	border:none;
+    	border-radius: 0;
+
+    	position: absolute;
+    	bottom: -32px;
+    	color:#FFF;
+    	padding-top: 12px;
+    	padding-bottom: 15px;
+    	font-size:1.4em;
+    	text-align: left;
+    	right: -16px;
+
+    	span.btn-text{
+    		height: 38px;
+    		padding-bottom: 15px;
+    		width:100%;
+    		background: url( '../images/bg-filters-btn.png' ) right no-repeat;
+    		display: inline-block;
+    		span {
+    			display: inline-block;
+    			margin-top: 5px;
+    		}
+    	}
+    }
+}
