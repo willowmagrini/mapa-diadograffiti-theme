@@ -1,5 +1,4 @@
 .footer-open {
-	padding:0 !important;
 	text-align:center;
 	background: #010201;
 	cursor: pointer;
@@ -7,6 +6,10 @@
 		font-weight: normal;
 		color:#E3E3E3;
 	}
+	@media screen and ( max-width: 800px ) {
+		padding-top: 5px;
+		padding-bottom: 5px;
+    }
 }
 #footer-container {
 	padding:0 !important;
@@ -34,6 +37,10 @@
 		height:150px;
 		padding-top:15px;
 		transition:700ms ease all;
+		@media screen and ( max-width: 800px ) {
+    		height:auto;
+    	}
+
 	}
 	span.icon {
 		background: url( '../images/bg-footer-title.png') center center no-repeat;

@@ -1,2 +1,2 @@
-.modal .modal-header{background:#ea7a06}.modal .modal-header .modal-title{color:#FFF;text-align:center}.modal .modal-header .close{margin-top:-45px;color:#ea7a06;opacity:1;margin-right:-35px;font-weight:400;text-shadow:none}.modal .modal-content{border-radius:0 !important}.modal .modal-dialog{margin-top:70px}
+.modal .modal-header{background:#ea7a06}.modal .modal-header .modal-title{color:#FFF;text-align:center}.modal .modal-header .close{margin-top:-45px;color:#ea7a06;opacity:1;margin-right:-35px;font-weight:400;text-shadow:none}@media screen and (max-width: 800px){.modal .modal-header .close{margin-right:-5px}}.modal .modal-content{border-radius:0 !important}.modal .modal-dialog{margin-top:70px}
 /*# sourceMappingURL=modal.css.map */

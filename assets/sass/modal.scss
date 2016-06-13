@@ -12,6 +12,10 @@
 			margin-right: -35px;
 			font-weight: 400;
 			text-shadow:none;
+			@media screen and ( max-width: 800px ) {
+    			margin-right:-5px;
+    		}
+
 		}
 	}
 	.modal-content {

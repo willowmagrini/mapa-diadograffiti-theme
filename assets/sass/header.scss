@@ -2,6 +2,9 @@
 	#wpadminbar {
 		display:none !important;
 	}
+	html {
+		margin:0 !important;
+	}
 }
 #header {
 	width:100%;
@@ -49,7 +52,7 @@
 		z-index:99;
 		@media screen and ( max-width: 700px ) {
 			display:none !important;
-		} 
+		}
 	}
 	.container-menu {
 		width:100%;

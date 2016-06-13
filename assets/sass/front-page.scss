@@ -14,7 +14,7 @@ html {
     margin-top: 84px;
     position: fixed;
     right: 0;
-    z-index: 122;
+    z-index: 86;
     background: url( '../images/bg-filters.png' ) center no-repeat;
     background-size: cover;
     padding-bottom: 20px;
@@ -70,6 +70,9 @@ html {
     	font-size:1.4em;
     	text-align: left;
     	right: -16px;
+    	@media screen and ( max-width: 800px ) {
+    		bottom:-47px !important;
+    	}
 
     	span.btn-text{
     		height: 38px;
@@ -77,6 +80,9 @@ html {
     		width:100%;
     		background: url( '../images/bg-filters-btn.png' ) right no-repeat;
     		display: inline-block;
+    		@media screen and ( max-width: 800px ) {
+    			padding-right:42px;
+    		}
     		span {
     			display: inline-block;
     			margin-top: 5px;
