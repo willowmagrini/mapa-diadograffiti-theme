@@ -1,0 +1,23 @@
+.modal {
+	.modal-header {
+		background: #ea7a06;
+		.modal-title {
+			color:#FFF;
+			text-align: center;
+		}
+		.close {
+			margin-top: -45px;
+			color: #ea7a06;
+			opacity: 1;
+			margin-right: -35px;
+			font-weight: 400;
+			text-shadow:none;
+		}
+	}
+	.modal-content {
+		border-radius: 0 !important;
+	}
+	.modal-dialog {
+		margin-top: 70px;
+	}
+}

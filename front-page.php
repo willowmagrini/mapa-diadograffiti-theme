@@ -16,6 +16,7 @@ get_header(); ?>
 		<h3 class="info">
 			<?php _e( 'Faça uma pesquisa no Mapa', 'odin' );?>
 		</h3><!-- .info -->
+		<span id="icon-help" data-toggle="modal" data-target="#help-modal"></span>
 		<form>
 			<input type="text" class="text" placeholder="<?php _e( 'Pesquise por endereço', 'odin' );?>" />
 			<input type="text" class="text" placeholder="<?php _e( 'Pesquise pelo nome do artista', 'odin' );?>" />

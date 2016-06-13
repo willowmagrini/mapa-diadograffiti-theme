@@ -29,7 +29,7 @@
 			<span class="skiplink-text"><?php _e( 'Skip to content', 'odin' ); ?></span>
 		</div>
 	</a>
-
+	<?php get_template_part( 'parts/modal-como-pesquisar' );?>
 	<header id="header" role="banner">
 		<div class="header-image">
 			<?php
