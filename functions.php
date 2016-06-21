@@ -31,7 +31,7 @@ require_once get_template_directory() . '/core/classes/class-thumbnail-resizer.p
 // require_once get_template_directory() . '/core/classes/class-options-helper.php';
 // require_once get_template_directory() . '/core/classes/class-post-type.php';
 // require_once get_template_directory() . '/core/classes/class-taxonomy.php';
-// require_once get_template_directory() . '/core/classes/class-metabox.php';
+require_once get_template_directory() . '/core/classes/class-metabox.php';
 // require_once get_template_directory() . '/core/classes/abstracts/abstract-front-end-form.php';
 // require_once get_template_directory() . '/core/classes/class-contact-form.php';
 // require_once get_template_directory() . '/core/classes/class-post-form.php';
@@ -237,6 +237,7 @@ function odin_enqueue_scripts() {
 		// Grunt main file with Bootstrap, FitVids and others libs.
 		wp_enqueue_script( 'odin-main-min', $template_url . '/assets/js/main.min.js', array(), null, true );
 	}
+	wp_localize_script( 'odin-main-min', 'odin', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 
 	// Grunt watch livereload in the browser.
 	// wp_enqueue_script( 'odin-livereload', 'http://localhost:35729/livereload.js?snipver=1', array(), null, true );
@@ -302,6 +303,21 @@ require_once get_template_directory() . '/inc/optimize.php';
  * Custom template tags.
  */
 require_once get_template_directory() . '/inc/template-tags.php';
+
+/**
+ * Custom post types & taxonomies
+ */
+require_once get_template_directory() . '/inc/custom-types.php';
+/**
+ * ACF and Fields.
+ */
+require_once get_template_directory() . '/inc/acf/acf.php';
+require_once get_template_directory() . '/inc/custom-fields.php';
+
+/**
+ * Query Pins class
+ */
+require_once get_template_directory() . '/inc/pins-query-class.php';
 
 /**
  * WooCommerce compatibility files.
