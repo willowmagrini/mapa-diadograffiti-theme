@@ -18,8 +18,11 @@ get_header(); ?>
 		</h3><!-- .info -->
 		<span id="icon-help" data-toggle="modal" data-target="#help-modal"></span>
 		<form>
-			<input type="text" class="text" placeholder="<?php _e( 'Pesquise por endereço', 'odin' );?>" />
+			<input id="input-address" type="text" class="text" placeholder="<?php _e( 'Pesquise por endereço', 'odin' );?>" />
 			<input type="text" class="text" placeholder="<?php _e( 'Pesquise pelo nome do artista', 'odin' );?>" />
+			<input type="hidden" id="input-lat" name="lat" />
+			<input type="hidden" id="input-lng" name="lng" />
+
 			<div class="col-md-12 radio">
 				<input type="radio" name="event-type" value="oficial" class="pull-left" />
 				<label for="event-type">

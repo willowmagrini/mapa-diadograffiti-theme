@@ -220,7 +220,7 @@ function odin_enqueue_scripts() {
 	wp_enqueue_script( 'jquery' );
 
 	// Google Maps
-	wp_enqueue_script( 'google-maps-v3', '//maps.googleapis.com/maps/api/js?key=AIzaSyAa3zYip1cZkKdrUuCGYjqh42Nbrr0ICMQ', array(), null, true );
+	wp_enqueue_script( 'google-maps-v3', '//maps.googleapis.com/maps/api/js?key=AIzaSyAa3zYip1cZkKdrUuCGYjqh42Nbrr0ICMQ&signed_in=true&libraries=places', array(), null, true );
 
 
 	// General scripts.
