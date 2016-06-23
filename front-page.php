@@ -19,7 +19,18 @@ get_header(); ?>
 		<span id="icon-help" data-toggle="modal" data-target="#help-modal"></span>
 		<form>
 			<input id="input-address" type="text" class="text" placeholder="<?php _e( 'Pesquise por endereço', 'odin' );?>" />
-			<input type="text" class="text" placeholder="<?php _e( 'Pesquise pelo nome do artista', 'odin' );?>" />
+			<select name="by_artista[]" class="text select-search" multiple placeholder="<?php _e( 'Pesquise pelo nome do artista', 'odin');?>">
+				<?php $terms = get_terms( array( 'artistas' ), array( 'hide_empty' => false ) );?>
+				<?php foreach ( $terms as $term ) : ?>
+					<?php $selected = '';?>
+					<?php if ( isset( $_GET[ 'by_artista'] ) && is_array( $_GET[ 'by_artista'] ) && in_array( $term->slug, $_GET[ 'by_artista'] ) ) : ?>
+						<?php $selected = 'selected';?>
+					<?php endif;?>
+					<option value="<?php echo $term->slug;?>" <?php echo $selected;?>>
+						<?php echo apply_filters( 'the_title', $term->name );?>
+					</option>
+				<?php endforeach;?>
+			</select>
 			<input type="hidden" id="input-lat" name="lat" />
 			<input type="hidden" id="input-lng" name="lng" />
 
