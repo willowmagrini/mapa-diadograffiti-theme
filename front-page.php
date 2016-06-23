@@ -35,13 +35,21 @@ get_header(); ?>
 			<input type="hidden" id="input-lng" name="lng" />
 
 			<div class="col-md-12 radio">
-				<input type="radio" name="event-type" value="oficial" class="pull-left" />
+				<?php $selected = '';?>
+				<?php if( isset( $_GET[ 'event-type' ] ) && $_GET[ 'event-type'] == 'oficial' ) : ?>
+					<?php $selected = 'checked';?>
+				<?php endif;?>
+				<input type="radio" name="event-type" value="oficial" class="pull-left" <?php echo $selected;?> />
 				<label for="event-type">
 					<?php _e( 'Eventos do Dia do Graffiti', 'odin' );?>
 				</label>
 			</div><!-- .col-md-12 -->
 			<div class="col-md-12 radio">
-				<input type="radio" name="event-type" value="externo" class="pull-left" />
+				<?php $selected = '';?>
+				<?php if( isset( $_GET[ 'event-type' ] ) && $_GET[ 'event-type'] == 'externo' ) : ?>
+					<?php $selected = 'checked';?>
+				<?php endif;?>
+				<input type="radio" name="event-type" value="externo" class="pull-left" <?php echo $selected;?> />
 				<label for="event-type">
 					<?php _e( 'Eventos externos', 'odin' );?>
 				</label>
