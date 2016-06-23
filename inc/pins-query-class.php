@@ -59,6 +59,15 @@
 					),
 				);
 			}
+			if ( isset( $query[ 'by_artista' ] ) && is_array( $query[ 'by_artista' ] ) ) {
+				$args[ 'tax_query' ] = array(
+					array(
+						'taxonomy' => 'artistas',
+						'field'    => 'slug',
+						'terms'    => $query[ 'by_artista' ]
+						)
+					);
+			}
 			return $args;
 		}
 		/**
