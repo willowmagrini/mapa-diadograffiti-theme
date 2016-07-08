@@ -108,3 +108,13 @@ html {
 .select2-container--open {
 	margin-top:-30px;
 }
+body {
+	background:#FFF url( '../images/ellipsis.gif' ) center center no-repeat;
+	transition:500ms ease all;
+	&.loading {
+		#map {
+			opacity: 0.1;
+			transition:500ms ease all;
+		}
+	}
+}

@@ -75,4 +75,3 @@ get_header(); ?>
 <div id="map"></div><!-- #map -->
 <?php
 get_footer();
-

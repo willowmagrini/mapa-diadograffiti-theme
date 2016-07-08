@@ -23,6 +23,7 @@ jQuery(document).ready(function($) {
 			post_id: id
 		}
 		$( 'body' ).addClass( 'loading' );
+		$( '#open-pin' ).removeClass( 'open' );
 		$.get( odin.ajax_url, data, function( response ) {
 			$( '#open-pin' ).html( response );
 			$( '#open-pin' ).addClass( 'open' );
@@ -53,6 +54,9 @@ jQuery(document).ready(function($) {
 			}
 		});
 	}
+	$( '#open-pin' ).on( 'click', '.icon-close',function( e ) {
+		$( '#open-pin' ).removeClass( 'open' );
+	});
 	var ajax_load_pins = function( map ) {
 		var data = {
 			action: 'show_pins_json',

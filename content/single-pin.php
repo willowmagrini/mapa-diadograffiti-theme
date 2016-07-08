@@ -5,8 +5,14 @@
  *
 */
 ?>
+<span class="icon-close"></span>
 <div class="col-md-12 each-pin">
 	<?php $years = get_posts_order_by_year( get_the_ID() );?>
+	<div class="col-md-12 infos infos-select">
+		<h4>
+			<?php _e( 'Selecione os anos', 'odin');?>
+		</h4>
+	</div><!-- .col-md-12 infos -->
 	<select class="col-md-12 select-year" placeholder="<?php esc_attr_e( 'Selecione o ano', 'odin' );?>" multiple>
 		<?php foreach ( $years as $year => $post_id ) : ?>
 			<?php $selected = '';?>
@@ -64,4 +70,17 @@
 			<?php endif;?>
 		<?php endforeach;?>
 	</div><!-- .col-md-12 slider-pin -->
+	<div class="col-md-12 infos">
+		<h3>
+			<?php if ( $value = get_post_meta( get_the_ID(), 'address', true ) ) : ?>
+				<?php echo apply_filters( 'the_title', $value );?>
+			<?php endif;?>
+		</h3>
+		<h3>
+			<?php _e( 'Artistas', 'odin' );?>
+		</h3>
+		<h5>
+			<?php the_artistas_list( $years );?>
+		</h5>
+	</div><!-- .col-md-12 infos -->
 </div><!-- .col-md-12 each-pin -->

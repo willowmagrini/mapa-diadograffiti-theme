@@ -109,3 +109,28 @@ function get_posts_order_by_year( $post_parent ) {
 	}
 	return $posts;
 }
+
+function the_artistas_list( $posts ) {
+	$artistas = array();
+	$html = '';
+	if ( ! empty( $posts ) ) {
+		foreach ( $posts as $year => $post_id ) {
+			$current_artistas = wp_get_object_terms( array( $post_id ), array( 'artistas' ), array() );
+			foreach( $current_artistas as $term ) {
+				$artistas[ $term->term_id ] = $term->name;
+			}
+		}
+	}
+	if ( ! empty( $artistas ) ) {
+		$i = 0;
+		foreach ( $artistas as $term ) {
+			if ( $i == 0 ) {
+				$html .= $term;
+			} else {
+				$html .= ', ' . $term;
+			}
+			$i++;
+		}
+	}
+	echo $html;
+}

@@ -120,4 +120,25 @@
 			width:100% !important;
 		}
 	}
+	.infos {
+		* {
+			color:#FFF;
+			font-weight: 300;
+		}
+	}
+	.infos-select {
+		* {
+			margin-top:5px;
+			margin-bottom: 0 !important;
+		}
+	}
+	.icon-close {
+		display: inline-block;
+		width:60px;
+		height:60px;
+		background: url( '../images/icon-close.png' ) center center no-repeat;
+		position: absolute;
+		left: -35px;
+		top: -20px;
+	}
 }
