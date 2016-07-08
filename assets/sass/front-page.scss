@@ -118,3 +118,11 @@ body {
 		}
 	}
 }
+#modal-lightbox {
+	.modal-body {
+		img {
+			min-width: 100%;
+			max-width: 100%;
+		}
+	}
+}

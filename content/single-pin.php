@@ -34,9 +34,10 @@
 				<?php $images = explode( ',', $galeria);?>
 				<?php foreach( $images as $image_id ) : ?>
 					<?php if ( $image = wp_get_attachment_image_src( $image_id, 'large', false ) ) : ?>
+						<?php $full = wp_get_attachment_image_src( $image_id, 'full', false );?>
 						<div class="col-md-12 each-slider" style="background-image:url( <?php echo $image[0];?>);">
 							<div class="slider-opacity">
-								<a href="<?php echo $image[0];?>" class="col-md-6 pull-left text-center">
+								<a href="<?php echo $full[0];?>" class="col-md-6 pull-left text-center ligthbox-open">
 									<span class="image-icon text-center">
 										<img src="<?php echo get_template_directory_uri();?>/assets/images/zoom-icon.png" alt="<?php esc_attr_e( 'Zoom', 'odin' );?>" />
 									</span>
@@ -62,6 +63,7 @@
 				<?php $images = explode( ',', $galeria);?>
 				<?php foreach( $images as $image_id ) : ?>
 					<?php if ( $image = wp_get_attachment_image_src( $image_id, 'thumbnail', false ) ) : ?>
+
 						<a href="#">
 							<img src="<?php echo $image[0];?>" alt="<?php echo get_the_title( $post_id );?>" width="80" height="80"/>
 						</a>

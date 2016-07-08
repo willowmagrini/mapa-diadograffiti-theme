@@ -30,6 +30,7 @@
 		</div>
 	</a>
 	<?php get_template_part( 'parts/modal-como-pesquisar' );?>
+	<?php get_template_part( 'parts/modal-lightbox' );?>
 	<header id="header" role="banner">
 		<div class="header-image">
 			<?php

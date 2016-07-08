@@ -57,6 +57,12 @@ jQuery(document).ready(function($) {
 	$( '#open-pin' ).on( 'click', '.icon-close',function( e ) {
 		$( '#open-pin' ).removeClass( 'open' );
 	});
+	$( '#open-pin' ).on( 'click', '.ligthbox-open', function( e ) {
+		e.preventDefault();
+		var image = '<img src="' + $( this ).attr( 'href' ) + '">';
+		$( '#modal-lightbox .modal-body' ).html( image );
+		$( '#modal-lightbox' ).modal('show');
+	})
 	var ajax_load_pins = function( map ) {
 		var data = {
 			action: 'show_pins_json',

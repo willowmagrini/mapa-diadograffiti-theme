@@ -1,0 +1,20 @@
+<?php
+/**
+ *
+ * Template: Modal ligthbox
+ *
+ *@description: modal lightbox using bootstrap
+**/
+?>
+<div class="modal fade" id="modal-lightbox">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+			</div><!-- .modal-header -->
+			<div class="modal-body">
+			</div><!-- .modal-body -->
+		</div><!-- .modal-content -->
+	</div><!-- .modal-dialog modal-sm -->
+</div><!-- .modal fade -->
+
