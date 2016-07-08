@@ -19,8 +19,14 @@
 		 * Initialize the class
 		 */
 		public function __construct() {
+			// Query Pins
 			add_action( 'wp_ajax_show_pins_json', array( &$this, 'show_pins_json' ) );
 			add_action( 'wp_ajax_nopriv_show_pins_json', array( &$this, 'show_pins_json' ) );
+
+			// Show Pin Post on click
+			add_action( 'wp_ajax_open_pin', array( &$this, 'ajax_open_pin' ) );
+			add_action( 'wp_ajax_nopriv_open_pin', array( &$this, 'ajax_open_pin' ) );
+
 		}
 		/**
 		 * Return an instance of this class.
@@ -46,7 +52,8 @@
 			$vars = str_replace( array( '?', '/' ), '', $vars );
 			$args = array(
 				'posts_per_page' => -1,
-				'post_type' => 'pins'
+				'post_type' => 'pins',
+				'post_parent' => 0
 			);
 			parse_str( $vars, $query );
 			$args = array_merge( $args, $query );
@@ -110,6 +117,16 @@
 			echo $json_result;
 			wp_die();
 		}
-
+		public function ajax_open_pin() {
+			if ( ! isset( $_REQUEST[ 'post_id'] ) ) {
+				return;
+			}
+			global $post;
+			$post = get_post( $_REQUEST[ 'post_id' ] );
+			if ( $post ) {
+				get_template_part( 'content/single-pin' );
+			}
+			wp_die();
+		}
 	}
 	new Pins_Query();

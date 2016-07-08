@@ -35,7 +35,7 @@ function diadoagraffiti_map_custom_types() {
 		'label'                 => __( 'Pin', 'odin' ),
 		'description'           => __( 'Pins', 'odin' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'author', 'thumbnail', 'trackbacks', 'revisions', ),
+		'supports'              => array( 'title', 'editor', 'author', 'thumbnail', 'trackbacks', 'revisions', 'page-attributes'),
 		'hierarchical'          => true,
 		'public'                => true,
 		'show_ui'               => true,

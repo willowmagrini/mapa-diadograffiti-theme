@@ -1,0 +1,123 @@
+#open-pin {
+	z-index: 99;
+	position: fixed;
+	top:111px;
+	background: url( '../images/bg-pin.png' ) center center no-repeat;
+	background-size: cover;
+	right:-50vw;
+	min-height: 530px;
+	transition:1s ease all;
+	&.open {
+		transition:1s ease all;
+		right:0;
+	}
+	.col-md-12 {
+		padding-left:3px;
+		padding-right:3px;
+	}
+	.select2-container {
+		background:#7c7c7c;
+		color:#FFF;
+		width:100%;
+		font-size: 1.2em;
+		border:none !important;
+		* {
+			border:none !important;
+		}
+	}
+	.select2-selection {
+		background:#7c7c7c;
+	}
+	.select2-container {
+		margin-top:10px;
+	}
+	.select2-selection__rendered li {
+		color:#000;
+	}
+	.slider-pin {
+		padding-top:10px;
+		.slick-prev {
+			border:none !important;
+			background:url( '../images/slider-prev-icon.png' ) center center no-repeat;
+			text-indent: -9999px;
+			width: 32px;
+			height: 32px;
+			position: absolute;
+			left: -20px;
+			top: 55px;
+			z-index: 99;
+		}
+		.slick-next {
+			border:none !important;
+			background:url( '../images/slider-next-icon.png' ) center center no-repeat;
+			text-indent: -9999px;
+			width: 32px;
+			height: 32px;
+			position: absolute;
+			right: -20px;
+			top: 55px;
+			z-index: 99;
+		}
+		.each-slider {
+			padding:0 !important;
+			background-size: cover;
+			background-position: center;
+		}
+		.slider-opacity {
+			width:100%;
+			background:rgba( 0, 0, 0, 0.6 );
+			opacity:0;
+			transition:300ms ease all;
+			height:150px;
+			a {
+				color:#FFF;
+				padding-top:20px;
+				span {
+					width:100%;
+					display: inline-block;
+					text-align: center;
+					img {
+						display: inline !important;
+					}
+				}
+				&:last-child {
+					padding-top:11px !important;
+				}
+			}
+			&:hover {
+				transition:300ms ease all;
+				opacity: 1;
+			}
+		}
+	}
+	.slider-pin-nav {
+		@media screen and ( max-width: 800 ) {
+			display:none;
+		}
+		.slick-prev {
+			border:none !important;
+			background:url( '../images/slider-prev-icon.png' ) center center no-repeat;
+			text-indent: -9999px;
+			width: 32px;
+			height: 32px;
+			position: absolute;
+			left: -20px;
+			top: 25px;
+			z-index: 99;
+		}
+		.slick-next {
+			border:none !important;
+			background:url( '../images/slider-next-icon.png' ) center center no-repeat;
+			text-indent: -9999px;
+			width: 32px;
+			height: 32px;
+			position: absolute;
+			right: -20px;
+			top: 25px;
+			z-index: 99;
+		}
+		img {
+			width:100% !important;
+		}
+	}
+}

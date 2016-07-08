@@ -87,3 +87,25 @@ if ( ! function_exists( 'odin_paging_nav' ) ) {
 		echo odin_pagination( $mid, $end, false );
 	}
 }
+
+function get_posts_order_by_year( $post_parent ) {
+	$posts = array();
+	$post_parent = intval( $post_parent );
+	if ( $post_parent_year = get_post_meta( $post_parent, 'event_year', true ) ) {
+		$post_parent_year = intval( $post_parent_year );
+		$posts[ $post_parent_year ] = $post_parent;
+	}
+	$posts_years = get_posts( array( 'post_parent' => $post_parent, 'post_type' => 'pins' ) );
+	if ( $posts_years ) {
+		foreach ( $posts_years as $post_year ) {
+			if ( $year = get_post_meta( $post_year->ID, 'event_year', true ) ) {
+				$year = intval( $year );
+				$posts[ $year ] = $post_year->ID;
+			}
+		}
+	}
+	if ( ! empty( $posts ) ) {
+		krsort( $posts );
+	}
+	return $posts;
+}
