@@ -68,7 +68,7 @@
 			background:rgba( 0, 0, 0, 0.6 );
 			opacity:0;
 			transition:300ms ease all;
-			height:150px;
+			height:120px;
 			a {
 				color:#FFF;
 				padding-top:20px;
@@ -141,5 +141,8 @@
 		left: -35px;
 		top: -20px;
 		cursor: pointer;
+	}
+	form button {
+		margin-top:5px;
 	}
 }

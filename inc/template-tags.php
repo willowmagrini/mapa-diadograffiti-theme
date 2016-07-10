@@ -99,6 +99,7 @@ function get_posts_order_by_year( $post_parent ) {
 	if ( $posts_years ) {
 		foreach ( $posts_years as $post_year ) {
 			if ( $year = get_post_meta( $post_year->ID, 'event_year', true ) ) {
+
 				$year = intval( $year );
 				$posts[ $year ] = $post_year->ID;
 			}

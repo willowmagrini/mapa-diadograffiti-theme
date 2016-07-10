@@ -13,22 +13,29 @@
 			<?php _e( 'Selecione os anos', 'odin');?>
 		</h4>
 	</div><!-- .col-md-12 infos -->
-	<select class="col-md-12 select-year" placeholder="<?php esc_attr_e( 'Selecione o ano', 'odin' );?>" multiple>
-		<?php foreach ( $years as $year => $post_id ) : ?>
-			<?php $selected = '';?>
-			<?php if ( isset( $_REQUEST[ 'years'] ) && in_array( $_REQUEST[ 'years'] , $post_id ) ) : ?>
-				<?php $selected = 'selected';?>
-			<?php endif;?>
-			<?php if ( ! isset( $_REQUEST[ 'years'] ) ) : ?>
-				<?php $selected = 'selected';?>
-			<?php endif;?>
-			<option value="<?php echo $year;?>" <?php echo $selected;?>>
-				<?php echo $year;?>
-			</option>
-		<?php endforeach;?>
-	</select>
+	<form method="post" id="years">
+		<select name="years[]" class="col-md-12 select-year" placeholder="<?php esc_attr_e( 'Selecione o ano', 'odin' );?>" multiple>
+			<?php foreach ( $years as $year => $post_id ) : ?>
+				<?php $selected = '';?>
+				<?php if ( isset( $_REQUEST[ 'years'] ) && in_array( $year, $_REQUEST[ 'years'] ) ) : ?>
+					<?php $selected = 'selected';?>
+				<?php endif;?>
+				<?php if ( ! isset( $_REQUEST[ 'years'] ) ) : ?>
+					<?php $selected = 'selected';?>
+				<?php endif;?>
+				<option value="<?php echo $year;?>" <?php echo $selected;?>>
+					<?php echo $year;?>
+				</option>
+			<?php endforeach;?>
+		</select>
+		<input type="hidden" name="pin_id" value="<?php echo get_the_ID();?>" />
+		<button><?php _e( 'Atualizar', 'odin' );?></button>
+	</form><!-- #years -->
 	<div class="col-md-12 slider-pin">
 		<?php foreach ( $years as $year => $post_id ) : ?>
+			<?php if ( isset( $_REQUEST[ 'years'] ) && ! in_array( $year, $_REQUEST[ 'years' ] ) ) : ?>
+				<?php continue;?>
+			<?php endif;?>
 			<?php $galeria = get_post_meta( $post_id, 'galeria', true );?>
 			<?php if ( $galeria ) : ?>
 				<?php $images = explode( ',', $galeria);?>
@@ -58,6 +65,9 @@
 	</div><!-- .col-md-12 post-image -->
 	<div class="col-md-12 slider-pin-nav">
 		<?php foreach ( $years as $year => $post_id ) : ?>
+			<?php if ( isset( $_REQUEST[ 'years'] ) && ! in_array( $year, $_REQUEST[ 'years' ] ) ) : ?>
+				<?php continue;?>
+			<?php endif;?>
 			<?php $galeria = get_post_meta( $post_id, 'galeria', true );?>
 			<?php if ( $galeria ) : ?>
 				<?php $images = explode( ',', $galeria);?>

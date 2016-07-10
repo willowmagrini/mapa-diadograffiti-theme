@@ -17,14 +17,20 @@ jQuery(document).ready(function($) {
 		return assoc;
 	}
 	var query_strings = getQueryStrings();
-	var ajax_open_pins = function( id ) {
+	var ajax_open_pins = function( id, years ) {
+		var url = odin.ajax_url;
 		var data = {
 			action: 'open_pin',
 			post_id: id
 		}
+		if ( typeof years != 'undefined' ) {
+			var data = $.param( data ) + '&' + years;
+		}
+		console.log( data );
+
 		$( 'body' ).addClass( 'loading' );
 		$( '#open-pin' ).removeClass( 'open' );
-		$.get( odin.ajax_url, data, function( response ) {
+		$.get( url, data, function( response ) {
 			$( '#open-pin' ).html( response );
 			$( '#open-pin' ).addClass( 'open' );
 			$( 'body' ).removeClass( 'loading' );
@@ -63,6 +69,12 @@ jQuery(document).ready(function($) {
 		$( '#modal-lightbox .modal-body' ).html( image );
 		$( '#modal-lightbox' ).modal('show');
 	})
+	$( '#open-pin' ).on( 'submit', 'form#years', function( e ) {
+		e.preventDefault();
+		var form_vars = $( this ).serialize();
+		console.log( form_vars + ' q' );
+		ajax_open_pins( $( 'form#years [name="pin_id"]').val(), form_vars );
+	});
 	var ajax_load_pins = function( map ) {
 		var data = {
 			action: 'show_pins_json',
