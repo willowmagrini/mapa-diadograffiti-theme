@@ -94,6 +94,24 @@
 					if ( ! $map || empty( $map ) ) {
 						continue;
 					}
+					if ( isset( $args[ 'by_year'] ) && ! empty( $args[ 'by_year'] ) ) {
+						$year = intval( $args[ 'by_year' ] );
+						$post_year = get_post_meta( $id, 'event_year', true );
+						if ( ! $post_year || intval( $post_year ) != $year ) {
+							$children_posts_args = array(
+								'post_type'		=> 'pins',
+								'post_parent'	=> $id,
+								'meta_key'		=> 'event_year',
+								'meta_value'	=> $year
+							);
+							$posts = get_posts( $children_posts_args );
+							if ( ! $posts || count( $posts ) < 1 ) {
+								unset( $posts );
+								continue;
+							}
+							unset( $posts );
+						}
+					}
 					$pins[ $id ][ 'lat' ] = $map[ 'lat' ];
 					$pins[ $id ][ 'lng' ] = $map[ 'lng' ];
 					$pins[ $id ][ 'post_id' ] = $id;
@@ -117,11 +135,21 @@
 			echo $json_result;
 			wp_die();
 		}
+		/**
+		 * Show pin on ajax request
+		 * @return bool
+		 */
 		public function ajax_open_pin() {
 			if ( ! isset( $_REQUEST[ 'post_id'] ) ) {
 				return;
 			}
 			global $post;
+			$args = $this->get_args_in_query_vars( $_SERVER[ 'HTTP_REFERER' ] );
+			if ( isset( $args[ 'by_year'] ) && ! empty( $args[ 'by_year' ] ) ) {
+				if ( ! isset( $_REQUEST[ 'years'] ) ) {
+					$_REQUEST[ 'years' ] = array( $args[ 'by_year'] );
+				}
+			}
 			$post = get_post( $_REQUEST[ 'post_id' ] );
 			if ( $post ) {
 				get_template_part( 'content/single-pin' );
