@@ -44,11 +44,22 @@
 						<?php $full = wp_get_attachment_image_src( $image_id, 'full', false );?>
 						<div class="col-md-12 each-slider" style="background-image:url( <?php echo $image[0];?>);">
 							<div class="slider-opacity">
-								<a href="<?php echo $full[0];?>" class="col-md-6 pull-left text-center ligthbox-open">
+								<?php $embed = 'false';?>
+								<?php if ( $value = get_post_meta( $image_id, 'video_embed', true ) ) : ?>
+									<?php $embed = 'true';?>
+									<?php $full[0] = apply_filters( 'the_content', sprintf( '[embed]%s[/embed]', $value ) );?>
+									<?php $full[0] = esc_attr( $full[0] );?>
+								<?php endif;?>
+								<a href="<?php echo $full[0];?>" class="col-md-6 pull-left text-center ligthbox-open" data-embed="<?php echo $embed;?>" data-html="<?php echo $full[0];?>">
 									<span class="image-icon text-center">
 										<img src="<?php echo get_template_directory_uri();?>/assets/images/zoom-icon.png" alt="<?php esc_attr_e( 'Zoom', 'odin' );?>" />
 									</span>
-									<?php _e( 'Zoom', 'odin');?>
+									<?php if ( $embed == 'false' ) : ?>
+										<?php _e( 'Zoom', 'odin');?>
+									<?php endif;?>
+									<?php if ( $embed == 'true' ) : ?>
+										<?php _e( 'Abrir vídeo', 'odin');?>
+									<?php endif;?>
 								</a>
 								<a href="#<?php echo $year;?>" class="col-md-6 pull-left text-center">
 									<span class="image-icon text-center">

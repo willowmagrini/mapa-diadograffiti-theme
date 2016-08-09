@@ -69,7 +69,11 @@ jQuery(document).ready(function($) {
 	});
 	$( '#open-pin' ).on( 'click', '.ligthbox-open', function( e ) {
 		e.preventDefault();
-		var image = '<img src="' + $( this ).attr( 'href' ) + '">';
+		if ( $( this ).attr( 'data-embed' ) == false ) {
+			var image = '<img src="' + $( this ).attr( 'href' ) + '">';
+		} else {
+			var image = decodeURIComponent( $( this ).attr( 'data-html' ) );
+		}
 		$( '#modal-lightbox .modal-body' ).html( image );
 		$( '#modal-lightbox' ).modal('show');
 	})
