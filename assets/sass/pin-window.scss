@@ -1,15 +1,17 @@
 #open-pin {
 	z-index: 99;
-	position: fixed;
+	position: absolute;
 	top:111px;
 	background: url( '../images/bg-pin.png' ) center center no-repeat;
 	background-size: cover;
 	right:-50vw;
-	min-height: 530px;
+	min-height: 90vh;
 	transition:1s ease all;
+
 	&.open {
 		transition:1s ease all;
 		right:0;
+		box-shadow: 3px 8px 4px 0px rgba(0, 0, 0, 0.53);
 	}
 	.col-md-12 {
 		padding-left:3px;
@@ -143,6 +145,6 @@
 		cursor: pointer;
 	}
 	form button {
-		margin-top:5px;
+		margin-top:10px;
 	}
 }

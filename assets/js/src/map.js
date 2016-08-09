@@ -33,7 +33,9 @@ jQuery(document).ready(function($) {
 		$.get( url, data, function( response ) {
 			$( '#open-pin' ).html( response );
 			$( '#open-pin' ).addClass( 'open' );
+			$( 'body' ).addClass( 'open-pin' );
 			$( 'body' ).removeClass( 'loading' );
+			$( 'html' ).attr( 'style', 'overflow-y:scroll !important;' );
 			$( '.select-year' ).select2({
 				placeholder: $( '.select-year' ).attr( 'placeholder' )
 			});
@@ -62,6 +64,8 @@ jQuery(document).ready(function($) {
 	}
 	$( '#open-pin' ).on( 'click', '.icon-close',function( e ) {
 		$( '#open-pin' ).removeClass( 'open' );
+		$( 'body' ).removeClass( 'open-pin' );
+		$( 'html' ).removeAttr( 'style');
 	});
 	$( '#open-pin' ).on( 'click', '.ligthbox-open', function( e ) {
 		e.preventDefault();

@@ -16,6 +16,7 @@
 	bottom:0;
 	position: fixed;
 	z-index:102;
+	transition:1s ease all;
 	.footer-toggle {
 		height:0;
 		background:url( '../images/bg-footer-toggle.png' ) no-repeat;
@@ -48,4 +49,8 @@
 		display: block;
 		height: 12px;
 	}
+}
+body.open-pin #footer-container {
+	opacity: 0;
+	transition:1s ease all;
 }

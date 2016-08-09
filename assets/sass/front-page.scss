@@ -1,8 +1,11 @@
 #map {
 	width:100%;
 	clear: both;
-	height:90vh;
+	height:110vh;
 	.gm-style-mtc {
+		display: none;
+	}
+	iframe {
 		display: none;
 	}
 }
@@ -14,104 +17,105 @@ html {
 	clear: both;
 }
 #filters {
-    margin-top: 84px;
-    position: fixed;
-    right: 0;
-    z-index: 86;
-    background: url( '../images/bg-filters.png' ) center no-repeat;
-    background-size: cover;
-    padding-bottom: 20px;
-    box-shadow: 3px 8px 4px 0px rgba(0, 0, 0, 0.53);
+	margin-top: 84px;
+	position: fixed;
+	right: 0;
+	z-index: 86;
+	background: url( '../images/bg-filters.png' ) center no-repeat;
+	background-size: cover;
+	padding-bottom: 20px;
+	box-shadow: 3px 8px 4px 0px rgba(0, 0, 0, 0.53);
 
-    #icon-help {
-    	display: inline-block;
-    	width:20px;
-    	height: 20px;
-    	position: absolute;
-    	top:10px;
-    	right:0;
-    	background: url( '../images/bg-filters-help.png' ) center no-repeat;
-    	cursor:pointer;
-    }
-    h3 {
-    	color:#FFF;
-    	padding-bottom: 20px;
-    }
-    .text, .select2-container {
-    	margin-bottom:10px;
-    	background:#7c7c7c;
-    	color:#FFF;
-    	width:100%;
-    	padding-right:10px;
-    	padding-left: 10px;
-    	padding-top:10px;
-    	padding-bottom: 10px;
-    	border: none;
-    	font-size: 1.2em;
-    }
-    .select2-container {
-    	padding-top: 5px;
-    	padding-bottom: 5px;
-    	padding-left: 5px;
-    }
-    .select2-container--below {
-    	margin-top:0 !important;
-    }
-    .select2-selection {
-    	background: none;
-    	border:none !important;
-    }
-    .select2-selection__choice {
-    	color:#000;
-    }
-    .text:last-child {
-    	margin-bottom: 20px;
-    }
-    input[type="radio"] {
-    	float: left;
-    }
-    label {
-    	color:#FFF;
-    	padding-left:10px;
-    	font-weight: 300;
-    }
-    button {
-    	background: #ea7a06;
-    	border:none;
-    	border-radius: 0;
+	#icon-help {
+		display: inline-block;
+		width:20px;
+		height: 20px;
+		position: absolute;
+		top:10px;
+		right:0;
+		background: url( '../images/bg-filters-help.png' ) center no-repeat;
+		cursor:pointer;
+	}
+	h3 {
+		color:#FFF;
+		padding-bottom: 20px;
+	}
+	.text, .select2-container {
+		margin-bottom:10px;
+		background:#7c7c7c;
+		color:#FFF;
+		width:100%;
+		padding-right:10px;
+		padding-left: 10px;
+		padding-top:10px;
+		padding-bottom: 10px;
+		border: none;
+		font-size: 1.2em;
+	}
+	.select2-container {
+		padding-top: 5px;
+		padding-bottom: 5px;
+		padding-left: 5px;
+	}
+	.select2-container--below {
+		margin-top:0 !important;
+	}
+	.select2-selection {
+		background: none;
+		border:none !important;
+	}
+	.select2-selection__choice {
+		color:#000;
+	}
+	.text:last-child {
+		margin-bottom: 20px;
+	}
+	input[type="radio"] {
+		float: left;
+	}
+	label {
+		color:#FFF;
+		padding-left:10px;
+		font-weight: 300;
+	}
+	button {
+		background: #ea7a06;
+		border:none;
+		border-radius: 0;
 
-    	position: absolute;
-    	bottom: -32px;
-    	color:#FFF;
-    	padding-top: 12px;
-    	padding-bottom: 15px;
-    	font-size:1.4em;
-    	text-align: left;
-    	right: -16px;
-    	@media screen and ( max-width: 800px ) {
-    		bottom:-47px !important;
-    	}
+		position: absolute;
+		bottom: -32px;
+		color:#FFF;
+		padding-top: 12px;
+		padding-bottom: 15px;
+		font-size:1.4em;
+		text-align: left;
+		right: -16px;
+		@media screen and ( max-width: 800px ) {
+			bottom:-47px !important;
+		}
 
-    	span.btn-text{
-    		height: 38px;
-    		padding-bottom: 15px;
-    		width:100%;
-    		background: url( '../images/bg-filters-btn.png' ) right no-repeat;
-    		display: inline-block;
-    		@media screen and ( max-width: 800px ) {
-    			padding-right:42px;
-    		}
-    		span {
-    			display: inline-block;
-    			margin-top: 5px;
-    		}
-    	}
-    }
+		span.btn-text{
+			height: 38px;
+			padding-bottom: 15px;
+			width:100%;
+			background: url( '../images/bg-filters-btn.png' ) right no-repeat;
+			display: inline-block;
+			@media screen and ( max-width: 800px ) {
+				padding-right:42px;
+			}
+			span {
+				display: inline-block;
+				margin-top: 5px;
+			}
+		}
+	}
 }
 .select2-container--open {
 	margin-top:-30px;
 }
 body {
+	max-height: 100vh;
 	background:#FFF url( '../images/ellipsis.gif' ) center center no-repeat;
 	transition:500ms ease all;
 	&.loading {

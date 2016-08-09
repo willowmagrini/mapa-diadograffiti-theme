@@ -14,7 +14,7 @@
 		</h4>
 	</div><!-- .col-md-12 infos -->
 	<form method="post" id="years">
-		<select name="years[]" class="col-md-12 select-year" placeholder="<?php esc_attr_e( 'Selecione o ano', 'odin' );?>" multiple>
+		<select name="years[]" class="col-md-9 select-year" placeholder="<?php esc_attr_e( 'Selecione o ano', 'odin' );?>" multiple>
 			<?php foreach ( $years as $year => $post_id ) : ?>
 				<?php $selected = '';?>
 				<?php if ( isset( $_REQUEST[ 'years'] ) && in_array( $year, $_REQUEST[ 'years'] ) ) : ?>
@@ -29,7 +29,7 @@
 			<?php endforeach;?>
 		</select>
 		<input type="hidden" name="pin_id" value="<?php echo get_the_ID();?>" />
-		<button><?php _e( 'Atualizar', 'odin' );?></button>
+		<button class="pull-right"><?php _e( 'Atualizar', 'odin' );?></button>
 	</form><!-- #years -->
 	<div class="col-md-12 slider-pin">
 		<?php foreach ( $years as $year => $post_id ) : ?>
@@ -83,11 +83,11 @@
 		<?php endforeach;?>
 	</div><!-- .col-md-12 slider-pin -->
 	<div class="col-md-12 infos">
-		<h3>
+		<h4>
 			<?php if ( $value = get_post_meta( get_the_ID(), 'address', true ) ) : ?>
 				<?php echo apply_filters( 'the_title', $value );?>
 			<?php endif;?>
-		</h3>
+		</h4>
 		<h3>
 			<?php _e( 'Artistas', 'odin' );?>
 		</h3>
