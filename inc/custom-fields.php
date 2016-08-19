@@ -127,6 +127,45 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 }
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_link-para-o-video',
+		'title' => 'Link para o vídeo',
+		'fields' => array (
+			array (
+				'key' => 'field_57b656068495f',
+				'label' => 'Link para o vídeo',
+				'name' => 'video_embed',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'ef_media',
+					'operator' => '==',
+					'value' => 'all',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
 
 /* odin metabox */
 $galeria_metabox = new Odin_Metabox(

@@ -38,6 +38,7 @@
 	}
 	.slider-pin {
 		padding-top:10px;
+		padding-bottom: 10px;
 		.slick-prev {
 			border:none !important;
 			background:url( '../images/slider-prev-icon.png' ) center center no-repeat;
@@ -46,7 +47,7 @@
 			height: 32px;
 			position: absolute;
 			left: -20px;
-			top: 55px;
+			top: 90px;
 			z-index: 99;
 		}
 		.slick-next {
@@ -57,7 +58,7 @@
 			height: 32px;
 			position: absolute;
 			right: -20px;
-			top: 55px;
+			top: 90px;
 			z-index: 99;
 		}
 		.each-slider {
@@ -70,10 +71,10 @@
 			background:rgba( 0, 0, 0, 0.6 );
 			opacity:0;
 			transition:300ms ease all;
-			height:120px;
+			height:190px;
 			a {
 				color:#FFF;
-				padding-top:20px;
+				padding-top:45px;
 				span {
 					width:100%;
 					display: inline-block;
@@ -83,7 +84,7 @@
 					}
 				}
 				&:last-child {
-					padding-top:11px !important;
+					padding-top:35px !important;
 				}
 			}
 			&:hover {

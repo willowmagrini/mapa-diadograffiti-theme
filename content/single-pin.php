@@ -8,6 +8,10 @@
 <span class="icon-close"></span>
 <div class="col-md-12 each-pin">
 	<?php $years = get_posts_order_by_year( get_the_ID() );?>
+	<?php if ( ! isset( $_REQUEST[ 'years'] ) ) : ?>
+		<?php $current = key( $years ); ?>
+	<?php endif;?>
+
 	<div class="col-md-12 infos infos-select">
 		<h4>
 			<?php _e( 'Selecione os anos', 'odin');?>
@@ -15,12 +19,17 @@
 	</div><!-- .col-md-12 infos -->
 	<form method="post" id="years">
 		<select name="years[]" class="col-md-9 select-year" placeholder="<?php esc_attr_e( 'Selecione o ano', 'odin' );?>" multiple>
+			<?php $max_years = 2;?>
+			<?php $selected_items = 1;?>
 			<?php foreach ( $years as $year => $post_id ) : ?>
 				<?php $selected = '';?>
 				<?php if ( isset( $_REQUEST[ 'years'] ) && in_array( $year, $_REQUEST[ 'years'] ) ) : ?>
-					<?php $selected = 'selected';?>
+					<?php if ( $selected_items <= $max_years ) : ?>
+						<?php $selected = 'selected';?>
+						<?php $selected_items++;?>
+					<?php endif;?>
 				<?php endif;?>
-				<?php if ( ! isset( $_REQUEST[ 'years'] ) ) : ?>
+				<?php if ( ! isset( $_REQUEST[ 'years'] ) && $current == $year ) : ?>
 					<?php $selected = 'selected';?>
 				<?php endif;?>
 				<option value="<?php echo $year;?>" <?php echo $selected;?>>
@@ -36,6 +45,9 @@
 			<?php if ( isset( $_REQUEST[ 'years'] ) && ! in_array( $year, $_REQUEST[ 'years' ] ) ) : ?>
 				<?php continue;?>
 			<?php endif;?>
+			<?php if ( ! isset( $_REQUEST[ 'years'] ) && $current != $year ) : ?>
+				<?php continue;?>
+			<?php endif;?> 
 			<?php $galeria = get_post_meta( $post_id, 'galeria', true );?>
 			<?php if ( $galeria ) : ?>
 				<?php $images = explode( ',', $galeria);?>
@@ -65,7 +77,7 @@
 									<span class="image-icon text-center">
 										<img src="<?php echo get_template_directory_uri();?>/assets/images/acervo-icon.png" alt="<?php esc_attr_e( 'Acervo Completo', 'odin' );?>" />
 									</span>
-									<?php _e( 'Acervo Completo', 'odin');?>
+									<?php printf( __( 'Acervo Completo - %s', 'odin' ), $year );?>
 								</a>
 							</div><!-- .slider-opacity -->
 						</div><!-- .col-md-12 each-slider -->

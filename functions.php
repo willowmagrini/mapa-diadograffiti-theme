@@ -308,6 +308,19 @@ require_once get_template_directory() . '/inc/template-tags.php';
  * Custom post types & taxonomies
  */
 require_once get_template_directory() . '/inc/custom-types.php';
+
+/**
+ * Set google maps api KEY
+ * @param [string] $api
+ */
+function diadograffiti_set_google_api_key( $api ){
+
+	$api['key'] = 'AIzaSyAa3zYip1cZkKdrUuCGYjqh42Nbrr0ICMQ';
+
+	return $api;
+
+}
+add_filter('acf/fields/google_map/api', 'diadograffiti_set_google_api_key');
 /**
  * ACF and Fields.
  */

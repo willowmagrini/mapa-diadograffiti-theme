@@ -37,7 +37,8 @@ jQuery(document).ready(function($) {
 			$( 'body' ).removeClass( 'loading' );
 			$( 'html' ).attr( 'style', 'overflow-y:scroll !important;' );
 			$( '.select-year' ).select2({
-				placeholder: $( '.select-year' ).attr( 'placeholder' )
+				placeholder: $( '.select-year' ).attr( 'placeholder' ),
+				maximumSelectionLength: 4
 			});
 			if ( $( window ).width() >= 800 ) {
 				$( '.slider-pin' ).slick({
@@ -69,7 +70,7 @@ jQuery(document).ready(function($) {
 	});
 	$( '#open-pin' ).on( 'click', '.ligthbox-open', function( e ) {
 		e.preventDefault();
-		if ( $( this ).attr( 'data-embed' ) == false ) {
+		if ( $( this ).attr( 'data-embed' ) == 'false' ) {
 			var image = '<img src="' + $( this ).attr( 'href' ) + '">';
 		} else {
 			var image = decodeURIComponent( $( this ).attr( 'data-html' ) );
