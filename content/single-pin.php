@@ -19,7 +19,7 @@
 	</div><!-- .col-md-12 infos -->
 	<form method="post" id="years">
 		<select name="years[]" class="col-md-9 select-year" placeholder="<?php esc_attr_e( 'Selecione o ano', 'odin' );?>" multiple>
-			<?php $max_years = 2;?>
+			<?php $max_years = 4;?>
 			<?php $selected_items = 1;?>
 			<?php foreach ( $years as $year => $post_id ) : ?>
 				<?php $selected = '';?>
@@ -91,6 +91,9 @@
 			<?php if ( isset( $_REQUEST[ 'years'] ) && ! in_array( $year, $_REQUEST[ 'years' ] ) ) : ?>
 				<?php continue;?>
 			<?php endif;?>
+			<?php if ( ! isset( $_REQUEST[ 'years'] ) && $current != $year ) : ?>
+				<?php continue;?>
+			<?php endif;?> 
 			<?php $galeria = get_post_meta( $post_id, 'galeria', true );?>
 			<?php if ( $galeria ) : ?>
 				<?php $images = explode( ',', $galeria);?>
