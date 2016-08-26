@@ -74,7 +74,7 @@
 									<?php endif;?>
 								</a>
 								<?php $link_year = sprintf( '%s.diadograffiti.org', $year );?>
-								<a href="#<?php echo $link_year;?>" class="col-md-6 pull-left text-center">
+								<a href="<?php echo $link_year;?>" class="col-md-6 pull-left text-center">
 									<span class="image-icon text-center">
 										<img src="<?php echo get_template_directory_uri();?>/assets/images/acervo-icon.png" alt="<?php esc_attr_e( 'Acervo Completo', 'odin' );?>" />
 									</span>
