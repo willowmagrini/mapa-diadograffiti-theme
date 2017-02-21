@@ -38,7 +38,7 @@
 			if ( ! empty( $header_image ) ) :
 			?>
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-					<img src="<?php echo esc_url( $header_image ); ?>" height="<?php esc_attr_e( $header_image->height ); ?>" width="<?php esc_attr_e( $header_image->width ); ?>" alt="" />
+					<img src="<?php echo esc_url( $header_image ); ?>" alt="<?php bloginfo( 'name' );?>" />
 				</a>
 			<?php endif; ?>
 		</div><!-- .header-image -->
