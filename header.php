@@ -42,6 +42,7 @@
 				</a>
 			<?php endif; ?>
 		</div><!-- .header-image -->
+		<?php if ( ! isset( $_GET[ 'embed'] ) ) : ?>
 		<div class="container-menu" id="header-size">
 			<div class="container">
 
@@ -79,4 +80,5 @@
 			<?php endif;?>
 		</div><!-- .container-->
 	</div><!-- .container-menu -->
+	<?php endif;?>
 	</header><!-- #header -->
