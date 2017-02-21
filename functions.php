@@ -344,7 +344,13 @@ if ( is_woocommerce_activated() ) {
 
 /**
  * Remove admin bar if query var embed is set
+ * And add body class
  */
 if ( isset( $_GET[ 'embed' ] ) ) {
 	add_filter( 'show_admin_bar', '__return_false' );
+	add_filter( 'body_class', function( $classes ){
+		$classes[] = 'embed';
+		return $classes;
+	});
 }
+
