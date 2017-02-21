@@ -221,23 +221,13 @@ function odin_enqueue_scripts() {
 
 	// Google Maps
 	wp_enqueue_script( 'google-maps-v3', '//maps.googleapis.com/maps/api/js?key=AIzaSyAa3zYip1cZkKdrUuCGYjqh42Nbrr0ICMQ&signed_in=true&libraries=places', array(), null, true );
-
-
-	// General scripts.
-	if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
-		// Bootstrap.
-		wp_enqueue_script( 'bootstrap', $template_url . '/assets/js/libs/bootstrap.min.js', array(), null, true );
-
-		// FitVids.
-		wp_enqueue_script( 'fitvids', $template_url . '/assets/js/libs/jquery.fitvids.js', array(), null, true );
-
-		// Main jQuery.
-		wp_enqueue_script( 'odin-main', $template_url . '/assets/js/main.js', array(), null, true );
-	} else {
-		// Grunt main file with Bootstrap, FitVids and others libs.
-		wp_enqueue_script( 'odin-main-min', $template_url . '/assets/js/main.min.js', array(), null, true );
-	}
-	wp_localize_script( 'odin-main-min', 'odin', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+	// Grunt main file with Bootstrap, FitVids and others libs.
+	wp_enqueue_script( 'odin-main-min', $template_url . '/assets/js/main.min.js', array(), null, true );
+	$odin_urls = array(
+		'ajax_url'	=> admin_url( 'admin-ajax.php' ),
+		'icon'		=> $template_url . '/assets/images/map-icon.png',
+	);
+	wp_localize_script( 'odin-main-min', 'odin', $odin_urls );
 
 	// Grunt watch livereload in the browser.
 	// wp_enqueue_script( 'odin-livereload', 'http://localhost:35729/livereload.js?snipver=1', array(), null, true );

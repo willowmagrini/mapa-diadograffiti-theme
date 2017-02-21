@@ -89,20 +89,40 @@ jQuery(document).ready(function($) {
 			action: 'show_pins_json',
 			vars: window.location.search
 		}
+		var cluster_config = {
+			styles: [{
+				anchorIcon: [ 32, 39 ],
+				fontWeight: 'bold',
+				width: 50,
+				height: 50,
+				textSize: 14,
+				url: odin.icon,
+    		}]
+    	};
+    	var image = new google.maps.MarkerImage(
+            odin.icon,
+            null,
+            new google.maps.Point(0,0),
+            new google.maps.Point(32, 39)
+        );
+		var markers = [];
 		$.get( odin.ajax_url, data, function( response ) {
 			var json = JSON.parse( response );
 			for ( var k in json ) {
 				var post = json[ k ];
 				var marker = new google.maps.Marker({
 					position: new google.maps.LatLng( post.lat, post.lng ),
-					map: map
+					map: map,
+					icon: image
 				});
 				marker.set( 'post', post );
+				markers.push( marker );
 				google.maps.event.addListener(marker, 'click', function(){
 					var $marker = this;
 					ajax_open_pins( $marker.post.post_id );
 				});
 			}
+			var cluster = new MarkerClusterer( map, markers, cluster_config );
 			//console.log( json );
 		} );
 	}

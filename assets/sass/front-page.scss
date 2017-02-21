@@ -8,6 +8,26 @@
 	iframe {
 		display: none;
 	}
+	.cluster {
+		margin-top:-15px;
+		span {
+			background: grey;
+			position: absolute;
+			color: #fff;
+			font-size: 17px;
+			padding-top: 5px;
+			padding-left: 7px;
+			padding-right: 7px;
+			border-radius: 10px;
+			text-align: center;
+			text-indent: 1px;
+			padding-bottom: 5px;
+			clear: both;
+			line-height: 10px;
+			border: 1px solid #fff;
+			margin-left: 6px;
+		}
+	}
 }
 html {
 	overflow: hidden !important;
