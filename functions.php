@@ -341,3 +341,10 @@ if ( is_woocommerce_activated() ) {
 	require get_template_directory() . '/inc/woocommerce/functions.php';
 	require get_template_directory() . '/inc/woocommerce/template-tags.php';
 }
+
+/**
+ * Remove admin bar if query var embed is set
+ */
+if ( isset( $_GET[ 'embed' ] ) ) {
+	add_filter( 'show_admin_bar', '__return_false' );
+}

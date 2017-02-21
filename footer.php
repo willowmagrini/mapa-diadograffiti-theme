@@ -9,6 +9,7 @@
  * @since 2.2.0
  */
 ?>
+<?php if ( ! isset( $_GET[ 'embed'] ) ) : ?>
 	<footer id="footer-container" class="col-md-12">
 		<span class="icon"></span>
 		<div class="col-md-12 footer-open text-center" data-open="false">
@@ -30,6 +31,7 @@
 			</div><!-- .container -->
 		</div><!-- .footer-toggle -->
 	</footer><!-- #footer-container -->
+<?php endif;?>
 <?php wp_footer(); ?>
 </body>
 </html>
