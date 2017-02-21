@@ -113,6 +113,7 @@ jQuery(document).ready(function($) {
 		maxZoom: 17,
 		streetViewControl: false,
 	};
+
 	if ( typeof query_strings[ 'lat'] !== 'undefined' || typeof query_strings[ 'lng'] !== 'undefined' ) {
 		if( query_strings[ 'lat'] != '' && query_strings[ 'lng'] != '' ) {
 			var options = {
