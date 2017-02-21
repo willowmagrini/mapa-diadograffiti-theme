@@ -108,8 +108,8 @@ jQuery(document).ready(function($) {
 	}
 	// init google maps
 	var options = {
-		center: new google.maps.LatLng( '-15', '-55' ),
-		zoom: 4,
+		center: new google.maps.LatLng( '-20.4871114', '-43.8622723' ),
+		zoom: 5,
 		maxZoom: 17,
 		streetViewControl: false,
 	};
