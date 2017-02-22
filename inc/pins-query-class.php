@@ -53,7 +53,6 @@
 			$args = array(
 				'posts_per_page' => -1,
 				'post_type' => 'pins',
-				'post_parent' => 0
 			);
 			parse_str( $vars, $query );
 			$args = array_merge( $args, $query );
@@ -90,6 +89,10 @@
 				while( $query_pins->have_posts() ) {
 					$query_pins->the_post();
 					$id = get_the_ID();
+					$post_parent = wp_get_post_parent_id( $id );
+					if ( $post_parent > 0 ) {
+						$id = $post_parent;
+					}
 					$map = get_post_meta( $id, 'map', true );
 					if ( ! $map || empty( $map ) ) {
 						continue;
