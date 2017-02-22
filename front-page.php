@@ -19,7 +19,7 @@ get_header(); ?>
 		<span id="icon-help" data-toggle="modal" data-target="#help-modal"></span>
 		<form>
 			<input id="input-address" type="text" class="text" placeholder="<?php _e( 'Pesquise por endereço', 'odin' );?>" />
-			<select name="by_artista[]" class="text select-search" multiple placeholder="<?php _e( 'Pesquise pelo nome do artista', 'odin');?>">
+			<select name="by_artista[]" class="text select-search" multiple placeholder="<?php _e( 'Pesquise pelo nome do artista', 'odin');?>" data-prefix="<?php _e( 'Artistas: ', 'odin');?>">
 				<?php $terms = get_terms( array( 'artistas' ), array( 'hide_empty' => false ) );?>
 				<?php foreach ( $terms as $term ) : ?>
 					<?php $selected = '';?>

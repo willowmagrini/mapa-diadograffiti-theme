@@ -76,6 +76,11 @@ html {
 		padding-top: 5px;
 		padding-bottom: 5px;
 		padding-left: 5px;
+		#select-search-prefix {
+			float: left;
+			padding-right: 8px;
+			margin-top: 5px;
+		}
 	}
 	.select2-container--below {
 		margin-top:0 !important;
