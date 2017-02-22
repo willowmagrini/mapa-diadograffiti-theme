@@ -114,21 +114,36 @@ function get_posts_order_by_year( $post_parent ) {
 function the_artistas_list( $posts ) {
 	$artistas = array();
 	$html = '';
+	if ( ! isset( $_REQUEST[ 'years'] ) ) {
+		$current = key( $posts );
+	}
+	$url = home_url( '/?by_artista[]=' );
 	if ( ! empty( $posts ) ) {
 		foreach ( $posts as $year => $post_id ) {
+			if ( isset( $_REQUEST[ 'years'] ) && ! in_array( $year, $_REQUEST[ 'years' ] ) ) {
+				continue;
+			}
+			if ( ! isset( $_REQUEST[ 'years'] ) && $current != $year ) {
+				continue;
+			}
+
 			$current_artistas = wp_get_object_terms( array( $post_id ), array( 'artistas' ), array() );
 			foreach( $current_artistas as $term ) {
-				$artistas[ $term->term_id ] = $term->name;
+				$artistas[ $term->term_id ] = array(
+					'name'	=> $term->name,
+					'url'	=> $url . $term->slug
+				);
 			}
 		}
 	}
+	$link = '<a href="%s" title="' . __( 'Pesquisar mais obras desse artista', 'odin' ) . '">%s</a>';
 	if ( ! empty( $artistas ) ) {
 		$i = 0;
 		foreach ( $artistas as $term ) {
 			if ( $i == 0 ) {
-				$html .= $term;
+				$html .= sprintf( $link, $term[ 'url'], $term[ 'name'] );
 			} else {
-				$html .= ', ' . $term;
+				$html .= ', ' . sprintf( $link, $term[ 'url'], $term[ 'name'] );
 			}
 			$i++;
 		}

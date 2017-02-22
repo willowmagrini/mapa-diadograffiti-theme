@@ -130,7 +130,6 @@ jQuery(document).ready(function($) {
 	var options = {
 		center: new google.maps.LatLng( '-23.802791', '-46.6795491' ),
 		zoom: 8,
-		maxZoom: 17,
 		streetViewControl: false,
 	};
 
@@ -139,7 +138,6 @@ jQuery(document).ready(function($) {
 			var options = {
 				center: new google.maps.LatLng( query_strings[ 'lat'], query_strings[ 'lng'] ),
 				zoom: 17,
-				maxZoom: 17,
 				streetViewControl: false,
 			};
 		}
