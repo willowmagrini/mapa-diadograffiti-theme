@@ -144,6 +144,9 @@ jQuery(document).ready(function($) {
 			};
 		}
 	}
+	if ( $( 'body' ).hasClass( 'embed' ) ) {
+		options.scrollwheel = false;
+	}
 	$( '#map' ).css( 'margin-top', $( '#header-size').outerHeight( false ) );
 	var map = new google.maps.Map( document.getElementById( 'map' ), options );
 	// load pins by ajax
