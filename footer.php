@@ -29,6 +29,9 @@
 					<?php endfor;?>
 				</div><!-- .row -->
 			</div><!-- .container -->
+			<div class="col-md-12 text-center madewith">
+				<?php printf( __( 'Feito com <i class="fa fa-heart" aria-hidden="true"></i> amor e <a href="%s"><i class="fa fa-wordpress" aria-hidden="true"></i> WordPress</a> pela <a href="%s">Brasa.art.br</a>. Publicado sob licença GPL v2 no <a href="%s"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a>', 'odin' ), 'https://wordpress.org', 'https://brasa.art.br', 'https://github.com/brasadesign/mapa-diadograffiti-theme/' );?>
+			</div><!-- .col-md-12 text-center madewith -->
 		</div><!-- .footer-toggle -->
 	</footer><!-- #footer-container -->
 <?php endif;?>

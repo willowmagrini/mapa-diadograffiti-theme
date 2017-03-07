@@ -49,6 +49,28 @@
 		display: block;
 		height: 12px;
 	}
+	.madewith {
+		color: #FFF;
+		font-size:1.3em;
+		padding-top: 20px;
+		a {
+			padding-right:0;
+			text-decoration: underline;
+			transition:400ms ease all;
+			color:#FFF;
+		}
+		.fa-heart {
+			color: #f44242;
+		}
+		.fa {
+			transition:400ms ease all;
+		}
+		a:hover .fa,
+		.fa:hover {
+			font-size:1.6em;
+			transition:400ms ease all;
+		}
+	}
 }
 body.open-pin #footer-container {
 	opacity: 0;

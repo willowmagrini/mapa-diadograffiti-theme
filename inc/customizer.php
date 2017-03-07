@@ -122,8 +122,6 @@ function mapa_graffiti_kirki_fields( $fields ) {
 		'priority' => 1,
 	);
 
-
-
 	return $fields;
 }
 add_filter( 'kirki/fields', 'mapa_graffiti_kirki_fields' );
