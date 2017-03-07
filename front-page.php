@@ -18,6 +18,12 @@ get_header(); ?>
 		</h3><!-- .info -->
 		<span id="icon-help" data-toggle="modal" data-target="#help-modal"></span>
 		<form>
+			<?php if ( isset( $_GET[ 'embed'] ) ) : ?>
+				<input type="hidden" name="embed" value="true" />
+				<?php if ( isset( $_GET[ 'by_year'] ) && ! empty( $_GET[ 'by_year'] ) ) : ?>
+					<input type="hidden" name="by_year" value="<?php echo esc_attr( $_GET[ 'by_year' ] );?>" />
+				<?php endif;?>
+			<?php endif;?>
 			<input id="input-address" type="text" class="text" placeholder="<?php _e( 'Pesquise por endereço', 'odin' );?>" />
 			<select name="by_artista[]" class="text select-search" multiple placeholder="<?php _e( 'Pesquise pelo nome do artista', 'odin');?>" data-prefix="<?php _e( 'Artistas: ', 'odin');?>">
 				<?php $terms = get_terms( array( 'artistas' ), array( 'hide_empty' => false ) );?>
