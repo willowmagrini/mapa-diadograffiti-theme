@@ -35,9 +35,13 @@
 		<div class="header-image">
 			<?php
 			$header_image = get_header_image();
+			$home_url = home_url( '/' );
+			if ( isset( $_GET[ 'embed'] ) ) {
+				$home_url = home_url( '/?embed' );
+			}
 			if ( ! empty( $header_image ) ) :
 			?>
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+				<a href="<?php echo esc_url( $home_url ); ?>">
 					<img src="<?php echo esc_url( $header_image ); ?>" alt="<?php bloginfo( 'name' );?>" />
 				</a>
 			<?php endif; ?>
