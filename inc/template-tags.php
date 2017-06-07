@@ -90,12 +90,28 @@ if ( ! function_exists( 'odin_paging_nav' ) ) {
 
 function get_posts_order_by_year( $post_parent ) {
 	$posts = array();
+	$args = Pins_Query::get_instance()->get_args_in_query_vars( $_SERVER[ 'HTTP_REFERER'] );
+
 	$post_parent = intval( $post_parent );
-	if ( $post_parent_year = get_post_meta( $post_parent, 'event_year', true ) ) {
-		$post_parent_year = intval( $post_parent_year );
-		$posts[ $post_parent_year ] = $post_parent;
+	if ( has_term( $args[ 'by_artista' ], 'artistas', $post_parent ) ) {
+		if ( $post_parent_year = get_post_meta( $post_parent, 'event_year', true ) ) {
+			$post_parent_year = intval( $post_parent_year );
+			$posts[ $post_parent_year ] = $post_parent;
+		}
 	}
-	$posts_years = get_posts( array( 'post_parent' => $post_parent, 'post_type' => 'pins' ) );
+	$posts_years = get_posts(
+		array(
+			'post_parent' => $post_parent,
+			'post_type' => 'pins',
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'artistas',
+					'field'    => 'slug',
+					'terms'    => $args[ 'by_artista' ],
+				),
+			)
+		)
+	);
 	if ( $posts_years ) {
 		foreach ( $posts_years as $post_year ) {
 			if ( $year = get_post_meta( $post_year->ID, 'event_year', true ) ) {

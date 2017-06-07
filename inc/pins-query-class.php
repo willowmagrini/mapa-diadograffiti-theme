@@ -46,7 +46,7 @@
 		 * @param string $vars
 		 * @return array
 		 */
-		private function get_args_in_query_vars( $vars ) {
+		public function get_args_in_query_vars( $vars ) {
 			// clear URL
 			$vars = str_replace( get_home_url(), '', $vars );
 			$vars = str_replace( array( '?', '/' ), '', $vars );
@@ -161,4 +161,4 @@
 			wp_die();
 		}
 	}
-	new Pins_Query();
+	$pins_query = Pins_Query::get_instance();
