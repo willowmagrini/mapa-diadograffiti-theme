@@ -47,7 +47,7 @@
 			<?php endif;?>
 			<?php if ( ! isset( $_REQUEST[ 'years'] ) && $current != $year ) : ?>
 				<?php continue;?>
-			<?php endif;?> 
+			<?php endif;?>
 			<?php $galeria = get_post_meta( $post_id, 'galeria', true );?>
 			<?php if ( $galeria ) : ?>
 				<?php $images = explode( ',', $galeria);?>
@@ -94,14 +94,14 @@
 			<?php endif;?>
 			<?php if ( ! isset( $_REQUEST[ 'years'] ) && $current != $year ) : ?>
 				<?php continue;?>
-			<?php endif;?> 
+			<?php endif;?>
 			<?php $galeria = get_post_meta( $post_id, 'galeria', true );?>
 			<?php if ( $galeria ) : ?>
 				<?php $images = explode( ',', $galeria);?>
 				<?php foreach( $images as $image_id ) : ?>
 					<?php if ( $image = wp_get_attachment_image_src( $image_id, 'thumbnail', false ) ) : ?>
 
-						<a href="#">
+						<a>
 							<img src="<?php echo $image[0];?>" alt="<?php echo get_the_title( $post_id );?>" width="80" height="80"/>
 						</a>
 					<?php endif;?>
