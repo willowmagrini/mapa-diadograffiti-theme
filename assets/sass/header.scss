@@ -23,10 +23,12 @@
 		background: #ea7a06;
 		float: right;
 		padding: 25px;
+		padding-top:18px;
 		position: absolute;
 		height: 70px;
-		right: 20px;
+		right: 15px;
 		color:#FFF;
+		font-size: 20px;
 	}
 	.navbar-default {
 		border:transparent !important;
@@ -59,11 +61,7 @@
 		background: url( '../images/bg-header.png' ) no-repeat;
 		background-size: cover;
 		box-shadow: 0px 3px 6px 7px rgba(0,0,0,0.2);
-
-		.container {
-			@media screen and (min-width: 700px ) {
-				padding-left:145px;
-			}
-		}
+		float:left;
+		clear: both;
 	}
 }

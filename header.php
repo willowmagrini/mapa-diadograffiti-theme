@@ -44,7 +44,7 @@
 		</div><!-- .header-image -->
 		<?php if ( ! isset( $_GET[ 'embed'] ) ) : ?>
 		<div class="container-menu" id="header-size">
-			<div class="container">
+			<div class="col-md-12">
 
 			<div id="main-navigation" class="navbar navbar-default">
 				<div class="navbar-header">
@@ -78,7 +78,7 @@
 					<?php echo get_theme_mod( 'featured_btn_txt', '' );?>
 				</a>
 			<?php endif;?>
-		</div><!-- .container-->
+		</div><!-- .col-md-12-->
 	</div><!-- .container-menu -->
 	<?php endif;?>
 	</header><!-- #header -->
