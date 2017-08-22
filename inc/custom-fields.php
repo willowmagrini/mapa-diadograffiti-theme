@@ -48,85 +48,8 @@ if(function_exists("register_field_group"))
 		),
 		'menu_order' => 0,
 	));
-	register_field_group(array (
-		'id' => 'acf_tipo-de-evento',
-		'title' => 'Tipo de evento',
-		'fields' => array (
-			array (
-				'key' => 'field_5769a310eccd5',
-				'label' => 'Selecione o tipo de evento',
-				'name' => 'event_type',
-				'type' => 'radio',
-				'choices' => array (
-					'oficial' => 'Evento do Dia do Graffiti',
-					'externo' => 'Evento externo',
-				),
-				'other_choice' => 0,
-				'save_other_choice' => 0,
-				'default_value' => '',
-				'layout' => 'vertical',
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'pins',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'side',
-			'layout' => 'default',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
 }
-if(function_exists("register_field_group"))
-{
-	register_field_group(array (
-		'id' => 'acf_ano-do-evento',
-		'title' => 'Ano do Evento',
-		'fields' => array (
-			array (
-				'key' => 'field_5772c53884584',
-				'label' => 'Ano do Evento',
-				'name' => 'event_year',
-				'type' => 'text',
-				'required' => 1,
-				'default_value' => date( 'Y' ),
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'html',
-				'maxlength' => '',
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'pins',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'side',
-			'layout' => 'default',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
-}
+
 if(function_exists("register_field_group"))
 {
 	register_field_group(array (
