@@ -96,20 +96,44 @@ jQuery(document).ready(function($) {
 				width: 50,
 				height: 50,
 				textSize: 14,
-				url: odin.icon,
+				url: odin.icon_base+"pin-cluster.png",
     		}]
     	};
-    	var image = new google.maps.MarkerImage(
-            odin.icon,
-            null,
-            new google.maps.Point(0,0),
-            new google.maps.Point(32, 39)
-        );
+			// var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+
+    	// var image = new google.maps.MarkerImage(
+      //       odin.icon,
+      //       null,
+      //       new google.maps.Point(0,0),
+      //       new google.maps.Point(32, 39)
+      //   );
 		var markers = [];
 		$.get( odin.ajax_url, data, function( response ) {
+
 			var json = JSON.parse( response );
+
 			for ( var k in json ) {
 				var post = json[ k ];
+				var categoria = post.categoria;
+
+				if (categoria) {
+
+					var slug = categoria.slug;
+					console.log(slug);
+
+				}
+				else{
+
+					var slug = 'cluster';
+				}
+
+
+				var image =  new google.maps.MarkerImage(
+	            odin.icon_base+"pin-"+slug+".png",
+	            null,
+	            new google.maps.Point(0,0),
+	            new google.maps.Point(32, 39)
+	        );
 				var marker = new google.maps.Marker({
 					position: new google.maps.LatLng( post.lat, post.lng ),
 					map: map,
@@ -123,7 +147,6 @@ jQuery(document).ready(function($) {
 				});
 			}
 			var cluster = new MarkerClusterer( map, markers, cluster_config );
-			//console.log( json );
 		} );
 	}
 	// init google maps

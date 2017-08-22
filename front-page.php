@@ -18,13 +18,12 @@ get_header(); ?>
 		</h3><!-- .info -->
 		<span id="icon-help" data-toggle="modal" data-target="#help-modal"></span>
 		<form>
-
 			<input id="input-address" type="text" class="text" placeholder="<?php _e( 'Pesquise por endereço', 'odin' );?>" />
-			<select name="by_artista[]" class="text select-search" multiple placeholder="<?php _e( 'Pesquise pela categoria', 'odin');?>" data-prefix="<?php _e( 'Categorias: ', 'odin');?>">
+			<select name="por_categoria[]" class="text select-search" multiple placeholder="<?php _e( 'Pesquise pela categoria', 'odin');?>" data-prefix="<?php _e( 'Categorias: ', 'odin');?>">
 				<?php $terms = get_terms( array( 'tipo' ), array( 'hide_empty' => false ) );?>
 				<?php foreach ( $terms as $term ) : ?>
 					<?php $selected = '';?>
-					<?php if ( isset( $_GET[ 'by_artista'] ) && is_array( $_GET[ 'by_artista'] ) && in_array( $term->slug, $_GET[ 'by_artista'] ) ) : ?>
+					<?php if ( isset( $_GET[ 'por_categoria'] ) && is_array( $_GET[ 'por_categoria'] ) && in_array( $term->slug, $_GET[ 'por_categoria'] ) ) : ?>
 						<?php $selected = 'selected';?>
 					<?php endif;?>
 					<option value="<?php echo $term->slug;?>" <?php echo $selected;?>>

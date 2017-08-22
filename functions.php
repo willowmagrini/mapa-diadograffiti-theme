@@ -226,6 +226,7 @@ function odin_enqueue_scripts() {
 	$odin_urls = array(
 		'ajax_url'	=> admin_url( 'admin-ajax.php' ),
 		'icon'		=> $template_url . '/assets/images/map-icon.png',
+		'icon_base'		=> $template_url . '/assets/images/',
 	);
 	wp_localize_script( 'odin-main-min', 'odin', $odin_urls );
 
@@ -343,4 +344,3 @@ if ( isset( $_GET[ 'embed' ] ) ) {
 		return $classes;
 	});
 }
-

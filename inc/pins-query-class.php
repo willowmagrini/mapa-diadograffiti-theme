@@ -65,12 +65,12 @@
 					),
 				);
 			}
-			if ( isset( $query[ 'by_artista' ] ) && is_array( $query[ 'by_artista' ] ) ) {
+			if ( isset( $query[ 'por_categoria' ] ) && is_array( $query[ 'por_categoria' ] ) ) {
 				$args[ 'tax_query' ] = array(
 					array(
-						'taxonomy' => 'artistas',
+						'taxonomy' => 'tipo',
 						'field'    => 'slug',
-						'terms'    => $query[ 'by_artista' ]
+						'terms'    => $query[ 'por_categoria' ]
 						)
 					);
 			}
@@ -89,6 +89,8 @@
 				while( $query_pins->have_posts() ) {
 					$query_pins->the_post();
 					$id = get_the_ID();
+					$categoria = wp_get_post_terms($id, 'tipo', array('orderby' => 'none'));
+					$categoria = $categoria[0];
 					$post_parent = wp_get_post_parent_id( $id );
 					if ( $post_parent > 0 ) {
 						$id = $post_parent;
@@ -119,6 +121,8 @@
 					$pins[ $id ][ 'lat' ] = $map[ 'lat' ];
 					$pins[ $id ][ 'lng' ] = $map[ 'lng' ];
 					$pins[ $id ][ 'post_id' ] = $id;
+					$pins[ $id ][ 'categoria' ] = $categoria;
+
 				}
 				if ( $format_json == true ) {
 					return json_encode( $pins );
